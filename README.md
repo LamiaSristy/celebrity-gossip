@@ -4,8 +4,8 @@ This project is an application with the latest entertainment news, fashion, styl
 
 ## Build-With
 
-- Ruby v- '2.7.1'
-- Rails v- '6.0.3.4'
+- Ruby -v 2.7.1
+- Rails -v 6.0.3.4
 - PostgreSQL
 - VScode
 
@@ -23,8 +23,9 @@ To get this project up and running locally, you must already have ruby and neces
 4. Run ```cd celebrity-gossip```.
 5. Run ```bundle install``` to get the necesary gems.
 6. Run ```yarn``` .
-7. Run `rails db:migrate`.
-
+7. Run ```rails db:drop```.
+8. Run ```rails db:create```.
+9. Run `rails db:migrate`.
 
 ## Author Details::
 
