@@ -1,0 +1,21 @@
+ <%=form_for @post do |f|%>        
+
+      <div class="field">
+        <%=f.label :name%>
+        <%=f.text_field :name%>
+      </div>
+      
+      <div class="field">
+        <%=f.label :description%>
+        <%=f.text_area :description%>
+      </div>
+
+       <div class="field">
+          <%=f.label :select_group%>    
+          <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name, class: "form-check-input mr-2") %>
+        </div>
+      
+      <div class="actions">
+        <%=f.submit "Create", :class => 'btn btn-primary btn-lg mt-2'%>
+      </div>  
+    <%end%> 

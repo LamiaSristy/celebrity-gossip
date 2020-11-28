@@ -1,0 +1,14 @@
+<h1>All Posts</h1>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <%= link_to post_path(post.id) do %> 
+        <%=post.name%>
+      <%end%> 
+    </li>
+  <%end%>
+</ul>
+
+<%= link_to 'Create a new Post', new_post_path, :class => 'btn btn-primary col-12 col-md-4 center font-weight-bold' %> 
+<%= link_to 'Create a new Category', new_category_path, :class => 'btn btn-primary col-12 col-md-4 center font-weight-bold' %> 

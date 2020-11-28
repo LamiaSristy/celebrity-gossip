@@ -34,12 +34,12 @@ ActiveRecord::Schema.define(version: 2020_11_27_133207) do
   end
 
   create_table "groups", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "grouped_post_id"
-    t.bigint "grouped_category_id"
-    t.index ["grouped_category_id"], name: "index_groups_on_grouped_category_id"
-    t.index ["grouped_post_id"], name: "index_groups_on_grouped_post_id"
+    t.index ["category_id"], name: "index_groups_on_category_id"
+    t.index ["post_id"], name: "index_groups_on_post_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -76,8 +76,8 @@ ActiveRecord::Schema.define(version: 2020_11_27_133207) do
   add_foreign_key "categories", "users", column: "creator_id"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
-  add_foreign_key "groups", "categories", column: "grouped_category_id"
-  add_foreign_key "groups", "posts", column: "grouped_post_id"
+  add_foreign_key "groups", "categories"
+  add_foreign_key "groups", "posts"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "users", column: "author_id"
