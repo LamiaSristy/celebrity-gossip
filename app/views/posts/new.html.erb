@@ -12,7 +12,7 @@
 
        <div class="field">
           <%=f.label :select_group%>    
-          <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name, class: "form-check-input mr-2") %>
+          <%= f.collection_check_boxes(:category_ids, @categoties, :id, :name, class: "form-check-input mr-2") %>
         </div>
       
       <div class="actions">
