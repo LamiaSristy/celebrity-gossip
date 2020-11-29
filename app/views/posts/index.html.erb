@@ -1,14 +1,39 @@
-<h1>All Posts</h1>
+<div class = "row p-3">
+  <div class="col-12 col-md-8">   
+    <div class="center box"> 
+      <% @posts.each do |post| %>
+        <%= link_to post_path(post.id) do %>
+          <div class="card text-white mb-3 center custom-bg  post-box m-2 shadow" >
+            <img src="<%=post.image%>" class="card-img" alt="">
+            <div class="card-img-overlay">                
+              <h5 class="card-title"><%= post.name %></h5>                
+            </div>            
+          </div>  
+        <% end %>   
+      <% end %>   
+    </div>
+  </div>
+  
+  <div class="col-12 col-md-4">
+    <div class = "col-12 center border rounded custom-bg2 p-5 mb-5 mt-2">
+       <h3>WellCome <strong><%= current_user.name %></strong> </h3>
+       <p>We always provide the latest entertainment news, fashion, styles, pictures, and videos of your favorite celebrities.</p>  
+    </div>
+    <div class = "col-12 border rounded custom-bg shadow mb-5">
+      <p class = 'center mt-3'>All Categories</p>
+      <hr/>
+      <ul class = 'ml-3'>
+        <% @categoties.each do |c|%>
+          <li><%=c.name%></li>
+        <%end%>
+      </ul>      
+    </div>     
+    <div class = "col-12">
+       <%= link_to 'Create a new Post', new_post_path, :class => 'btn btn-primary center font-weight-bold mb-4' %> 
+    </div>
+    <div class = "col-12">
+      <%= link_to 'Create a new Category', new_category_path, :class => 'btn btn-primary  center font-weight-bold' %> 
+    </div>
+  </div>
+</div>
 
-<ul>
-  <% @posts.each do |post| %>
-    <li>
-      <%= link_to post_path(post.id) do %> 
-        <%=post.name%>
-      <%end%> 
-    </li>
-  <%end%>
-</ul>
-
-<%= link_to 'Create a new Post', new_post_path, :class => 'btn btn-primary col-12 col-md-4 center font-weight-bold' %> 
-<%= link_to 'Create a new Category', new_category_path, :class => 'btn btn-primary col-12 col-md-4 center font-weight-bold' %> 

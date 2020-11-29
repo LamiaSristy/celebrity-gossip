@@ -3,20 +3,27 @@ $primary-color: #797979;
 $primary-color-light: #fdeee7;
 $primary-color-text: #031804;
 $divider-color: #9ba5af;
-$btn-color: #e95916;
+$orange-color: #e95916;
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   outline: none;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
 }
 
 body {
+  overflow-x: hidden !important;  
   background: $primary-color-light;
   position: relative;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
+}
+
+a {
+  color: #fff;
 }
 
 .navbar {
@@ -53,20 +60,38 @@ body {
 
 .btn-primary {
   width: 100%;
-  background-color: $btn-color !important;
+  background-color: $orange-color !important;
+  border-color: $orange-color !important;
+}
+
+.btn-lg {
+  width: 100%;
+  background-color: $primary-color-dark !important;
+  border-color: $primary-color-dark !important;
+  color: #fff;
+}
+
+.btn-outline-success {
+  border-color: $orange-color !important;
 }
 
 .custom-bg {
-  background-color: $primary-color-dark !important;
-  color: white;
+  background-color: white;
+  color: $orange-color !important;
 }
 
 .custom-bg2 {
-  background-color: $primary-color !important;
+  background-color:  $orange-color !important;
+  color: white !important;
 }
 
-.custom-bg3 {
-  background-color: $divider-color;
+.custom-text {
+  color: $orange-color;
+}
+
+.custom-img {
+  // height: 300px !important;
+  // width: 100%;
 }
 
 .icon {
@@ -76,8 +101,11 @@ body {
   margin: 10px 0 0 10px;
 }
 
+
+
 link {
   text-decoration: none !important;
+  color: #fff !important;
 }
 
 form {
@@ -107,6 +135,14 @@ form {
   }
 }
 
+.card-img {
+  height: 300px;
+}
+
+.show-img {
+  height: 300px;
+}
+
 .jumbotron {
   margin: 50px;
 }
@@ -116,4 +152,13 @@ form {
     transform: scale(1.1, 1.1);
     box-shadow: 10px 10px 5px grey;
   }
+}
+
+.box {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(33%, 1fr));    
+}
+
+.post-box {
+    // height : 450px !important;
 }

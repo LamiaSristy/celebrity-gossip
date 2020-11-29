@@ -1,10 +1,10 @@
-<h1>Details</h1>
+<h1 class = "custom-text ml-3"><%=@post.name%></h1>
+<img src="<%=@post.image%>" class = "show-img ml-3" alt="">
 
-<p><%=@post.name%></p>
-<p><%=@post.description%></p>
-<p>
+<p class = "custom-text m-3 "><%=@post.description%></p>
+<p class = "custom-text ml-3 font-weight-bold">
   <% @post.categories.each do |c| %>
-    <%=c.name%>    
+    Category: <%=c.name%>    
   <%end%>
 </p>
 
@@ -12,11 +12,13 @@
     <%= render partial: 'comments/comment', collection: @post.comments %>
     <%= form_for(@post.comments.new, url: post_comments_path(@post)) do |form| %>
       <%= form.text_field :body, id: :comment_body, class: 'form-control', placeholder: 'Add new Comment' %>
-      <%= form.submit 'Comment', class: 'btn btn-secondary' %>
+      <%= form.submit 'Comment', class: 'btn btn-secondary mt-2' %>
     <%end%>
  </div>
 
-  <div class='post-liking'>
-      <span class='post-date'> <%= @post.created_at.strftime("%Y/%m/%d") %> </span>
-      <%= like_or_dislike_btn(@post) %>
-    </div>
+  <div class='post-liking text-dark font-weight-light ml-3 d-flex justify-content-end mr-5'>     
+      <div class = "btn btn-outline-success custom-bg2 text-white mr-5">
+        <%= like_or_dislike_btn(@post) %>
+      </div>      
+  </div>
+  <span class='post-date'> <small>published-date: <%= @post.created_at.strftime("%Y/%m/%d") %></small> </span>  
